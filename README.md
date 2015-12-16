@@ -6,3 +6,6 @@ timing heatmap based on hours
 示例截图：
 
 ![Alt text](https://raw.githubusercontent.com/SKing7/ctiming_h-m/master/shots/timing_20151215.png)
+
+##referrences
+[http://jsfiddle.net/35u8181n/](http://jsfiddle.net/35u8181n/)
