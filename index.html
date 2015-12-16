@@ -1,0 +1,83 @@
+<!Doctype html>
+<html xmlns=http://www.w3.org/1999/xhtml>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/highcharts/lib/highcharts.js"></script>
+<script src="bower_components/highcharts/lib/modules/map.js"></script>
+<script src="bower_components/highcharts/lib/modules/data.js"></script>
+
+<div id="container" style="height: 400px; max-width: 400px; margin: 0 auto"></div>
+<script>
+$.ajax({
+  url: "http://203.130.42.237/get/?url=ht_navigation_index_",
+  crossDomain: true
+}).done(function(data) {
+
+  $('#container').highcharts({
+
+    data: {
+      csv: data
+    },
+
+    chart: {
+      type: 'heatmap',
+    },
+
+
+    title: {
+      text: 'Highcharts heat map',
+      align: 'left'
+    },
+
+    subtitle: {
+      text: 'Temperature variation by day and hour through May 2015',
+      align: 'left'
+    },
+    xAxis: {
+      labels: {
+        format: '{value}:00'
+      },
+      minPadding: 0,
+      maxPadding: 0,
+      startOnTick: false,
+      endOnTick: false,
+      tickPositions: [0, 6, 12, 18, 24],
+      tickWidth: 1,
+      min: 0,
+      max: 23
+    },
+
+    yAxis: {
+      tickPixelInterval: 50,
+      tickPositions: [0, 2, 4, 6, 8, 10, 12, 14, 16],
+      min: 0,
+      max: 16,
+    },
+
+
+    colorAxis: {
+      stops: [
+        [0, '#5BC0EB'],
+        [0.5, '#fffbbc'],
+        [0.9, '#c4463a']
+      ],
+      min: 0
+    },
+
+    series: [{
+      borderWidth: 0,
+      //colsize: 24 * 36e5, // one day
+      tooltip: {
+        headerFormat: 'Temperature<br/>',
+        pointFormat: '时间区间: {point.y} * 200ms {point.x}:00: <b>{point.value}请求</b>'
+      }
+    }]
+
+  });
+})
+</script>
+</body>
+</html>
