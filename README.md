@@ -7,5 +7,5 @@ timing heatmap based on hours
 
 ![Alt text](https://raw.githubusercontent.com/SKing7/ctiming_h-m/master/shots/timing_20151215.png)
 
-##referrences
+##Reference
 [http://jsfiddle.net/35u8181n/](http://jsfiddle.net/35u8181n/)
